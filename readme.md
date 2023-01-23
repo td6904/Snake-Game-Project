@@ -1,0 +1,1 @@
+Followed this video to get up to put of snake movement, apple setting, tail lengthening and game over characteristics - https://www.youtube.com/watch?v=7Azlj0f9vas
