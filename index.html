@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        canvas{
-            box-shadow: black 20px 10px 50px;
-        }
-    </style>
-            <!-- 50px in canvas
-                box-shadow is the blur for the shadow ^^^-->
-
+    <title>Snake</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Snake</h1>
-    <canvas id="game" width="400" height="400"></canvas>
-    <script src="index.js"></script>
+    <h1>Snake by Tyler</h1>
+        <div id="userInterface">
+            <canvas id="game" width="400" height="400"></canvas>
+            <h3>Settings</h3>
+            <div id="settings">
+                <p>Change apple colour:</p>
+                <button id="red-button">Red</button>
+                <button id="green-button">Green</button>
+                <button id="pink-button">Pink</button>
+
+                <p>Change snake type</p>
+                <button id="anaconda-button">Anaconda</button>
+                <button id="python-button">Python</button>
+                <button id="cobra-button">Cobra</button>
+                </div>
+        <script src="index.js"></script>
+</div>
 </body>
 </html>

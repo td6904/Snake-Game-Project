@@ -24,6 +24,11 @@ let xVelocity = 0;
 let yVelocity = 0;
 
 let score = 0;
+let level = 1;
+
+let appleColour = "red"
+let snakeBodyColour = "green"
+let snakeHeadColour = "orange"
 
 const gulpSound = new Audio("GulpFinished.wav");
 
@@ -42,14 +47,18 @@ function drawGame(){
 
     if(score > 5){
         speed = 11;
+        level = 2;
     }
     if (score > 15){
         speed = 15;
+        level = 3;
     }
     if(score > 25){
         speed = 21;
+        level = "Impossible!!!!!!!!!!!!!!!";
     }
-    
+
+    drawLevel();
     setTimeout(drawGame, 1000/ speed);
 }
 
@@ -59,7 +68,6 @@ function isGameOver(){
     if(yVelocity === 0 && xVelocity === 0){ // <<< Stop automatic game over before starting
         return false;
     }
-
     //walls
     if(headX < 0){
         gameOver = true;
@@ -106,13 +114,19 @@ function drawScore(){
     ctx.fillText("Score " + score, canvas.width-50, 10)
 }
 
+function drawLevel(){
+    ctx.fillStyle = "white";
+    ctx.font = "10px Times New Roman";
+    ctx.fillText("Level " + level, canvas.width-380, 10)
+}
+
 function clearScreen(){
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function drawSnake(){
-    ctx.fillStyle = 'green';
+    ctx.fillStyle = snakeBodyColour;
     for(let i =0; i < snakeParts.length; i++){
         let part = snakeParts[i];
         ctx.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize)
@@ -123,8 +137,30 @@ function drawSnake(){
         snakeParts.shift(); //Remove furthest item from snake parts
     }
 
-    ctx.fillStyle = 'orange';
+    ctx.fillStyle = snakeHeadColour;
     ctx.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize);
+
+    //Snake modifications
+    //Anaconda
+    var button = document.getElementById("anaconda-button");
+    button.addEventListener("click", function(){
+    snakeHeadColour = "purple";
+    snakeBodyColour = "yellowgreen";
+    });
+
+    //Python
+    var button = document.getElementById("python-button");
+    button.addEventListener("click", function(){
+    snakeHeadColour = "blue";
+    snakeBodyColour = "yellow";
+    });
+
+    //Back to Cobra
+    var button = document.getElementById("cobra-button");
+    button.addEventListener("click", function(){
+    snakeHeadColour = "orange";
+    snakeBodyColour = "green";
+    });
 }
 
 function changeSnakePosition(){
@@ -132,10 +168,31 @@ function changeSnakePosition(){
     headY = headY + yVelocity;
 }
 
+
 function drawApple(){
-    ctx.fillStyle = "red";
+    ctx.fillStyle = appleColour;
     ctx.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
-    }
+
+    //Green
+    var button = document.getElementById("green-button");
+    button.addEventListener("click", function(){
+    appleColour = "green";
+    });
+
+    //Pink
+    var button = document.getElementById("pink-button");
+    button.addEventListener("click", function(){
+        appleColour = "pink";
+    });
+
+    //Back to red
+    var button = document.getElementById("red-button");
+    button.addEventListener("click", function(){
+    appleColour = "red";
+    });
+}
+
+
 
 function checkAppleCollision(){
     if(appleX === headX && appleY === headY){
@@ -146,7 +203,6 @@ function checkAppleCollision(){
         gulpSound.play();
     }
 }
-
 
 document.body.addEventListener('keydown', keyDown);
 
