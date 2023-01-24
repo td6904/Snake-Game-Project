@@ -8,6 +8,7 @@ class snakePart{
     }
 }
 
+let difficulty = 1000;
 let speed = 7;
 
 let tileCount = 20;
@@ -30,20 +31,25 @@ let appleColour = "red"
 let snakeBodyColour = "green"
 let snakeHeadColour = "orange"
 
+
 const gulpSound = new Audio("GulpFinished.wav");
 
 //game loop
 function drawGame(){
+    setDifficulty();
+
     changeSnakePosition();
     let result = isGameOver();
     if(result){
         return;
     }
+
     clearScreen();
     checkAppleCollision();
     drawApple();
     drawSnake();
     drawScore();
+    drawDifficulty();
 
     if(score > 5){
         speed = 11;
@@ -59,7 +65,27 @@ function drawGame(){
     }
 
     drawLevel();
-    setTimeout(drawGame, 1000/ speed);
+    setTimeout(drawGame, difficulty/ speed);
+}
+
+function setDifficulty(){
+    //Easy
+    var button = document.getElementById("easy-button");
+    button.addEventListener("click", function(){
+    difficulty = 2500;
+    });
+
+    //Hardcore
+    var button = document.getElementById("hardcore-button");
+    button.addEventListener("click", function(){
+    difficulty = 500;
+    });
+
+    //Back to normal
+    var button = document.getElementById("normal-button");
+    button.addEventListener("click", function(){
+    difficulty = 1000;
+    });
 }
 
 function isGameOver(){
@@ -104,7 +130,6 @@ function isGameOver(){
         ctx.fillText("Game Over!", canvas.width / 6.5, canvas.height / 2);
     }
     
-
     return gameOver;
 }
 
@@ -118,6 +143,12 @@ function drawLevel(){
     ctx.fillStyle = "white";
     ctx.font = "10px Times New Roman";
     ctx.fillText("Level " + level, canvas.width-380, 10)
+}
+
+function drawDifficulty(){
+    ctx.fillStyle = "white";
+    ctx.font = "Times New Roman";
+    ctx.fillText(difficulty + " difficulty", canvas.width-200, 10)
 }
 
 function clearScreen(){
@@ -191,6 +222,7 @@ function drawApple(){
     appleColour = "red";
     });
 }
+
 
 
 
