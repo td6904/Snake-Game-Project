@@ -119,7 +119,7 @@ function isGameOver(){
 
     if(gameOver){
         ctx.fillStyle = "white";
-        ctx.font = "50px Verdana";
+        ctx.font = "40px Verdana";
 
         var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
         gradient.addColorStop("0", "magenta");
@@ -127,11 +127,17 @@ function isGameOver(){
         gradient.addColorStop("1.0", "red");
         //fill with gradient
         ctx.fillStyle = gradient;
+        
+        //Doesn't work, but how to replace text in a string!
+        /*let returnString = "Game Over!\nYour score was " + score;
+        returnString = returnString.replace(/\n/g, "<br>")*/
+        ctx.fillText("Game Over!", canvas.width / 4.5, canvas.height / 2);
+        ctx.fillText("Your score was " + score, canvas.width / 10.5, canvas.height / 1.6);
 
-        ctx.fillText("Game Over!", canvas.width / 6.5, canvas.height / 2);
     }
     
     return gameOver;
+
 }
 
 function drawScore(){
@@ -281,5 +287,14 @@ function keyDown(event){
         xVelocity = -1;
         }
 }
+
+function saveHighscore(score){
+    localStorage.setItem("highscore", score);
+}
+
+function getHighscore(){
+    return localStorage.getItem("highscore")
+}
+
 
 drawGame();
