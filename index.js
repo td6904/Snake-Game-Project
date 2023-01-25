@@ -10,6 +10,7 @@ class snakePart{
 
 let difficulty = 1000;
 let speed = 7;
+let difficultyText;
 
 let tileCount = 20;
 let tileSize = canvas.width / tileCount - 2;
@@ -148,7 +149,16 @@ function drawLevel(){
 function drawDifficulty(){
     ctx.fillStyle = "white";
     ctx.font = "Times New Roman";
-    ctx.fillText(difficulty + " difficulty", canvas.width-200, 10)
+
+    if (difficulty === 2500){
+        difficultyText = "Easy";
+    } else if (difficulty === 1000){
+        difficultyText = "Normal";
+    } else if (difficulty === 500){
+        difficultyText = "Hardcore";
+    }
+
+    ctx.fillText(difficultyText + " difficulty", canvas.width-225, 10)
 }
 
 function clearScreen(){

@@ -1,11 +1,18 @@
-body {
+h1 {
     margin: 0;
     padding: 0;
+    padding-bottom: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+#userInterface {
+    display: flex;
+    justify-content: space-around;
+}
+
 #game{
     box-shadow: black 20px 10px 50px;
 }
@@ -15,4 +22,18 @@ body {
 #settings {
     background-color: gray;
     padding: 40px;
+    border: 2px solid black;
+}
+
+#highscore {
+    background-color: aqua;
+    padding: 40px;
+    border: 2px solid black;
+}
+
+.restartGame {
+    margin-top: 10px;
+    padding: 20px;
+    position: absolute;
+    left: calc(50% - 20px);
 }
