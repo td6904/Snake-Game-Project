@@ -32,6 +32,8 @@ let appleColour = "red"
 let snakeBodyColour = "green"
 let snakeHeadColour = "orange"
 
+//let highscore = 0;
+
 
 const gulpSound = new Audio("GulpFinished.wav");
 
@@ -51,6 +53,7 @@ function drawGame(){
     drawSnake();
     drawScore();
     drawDifficulty();
+    highScoreSet();
 
     if(score > 5){
         speed = 11;
@@ -68,6 +71,10 @@ function drawGame(){
     drawLevel();
     setTimeout(drawGame, difficulty/ speed);
 }
+
+
+
+
 
 function setDifficulty(){
     //Easy
@@ -131,14 +138,27 @@ function isGameOver(){
         //Doesn't work, but how to replace text in a string!
         /*let returnString = "Game Over!\nYour score was " + score;
         returnString = returnString.replace(/\n/g, "<br>")*/
-        ctx.fillText("Game Over!", canvas.width / 4.5, canvas.height / 2);
-        ctx.fillText("Your score was " + score, canvas.width / 10.5, canvas.height / 1.6);
+        ctx.fillText("Game Over!", canvas.width / 5.5, canvas.height / 2);
+        ctx.fillText("Your score was " + score, canvas.width / 16.5, canvas.height / 1.6);
+
+       
 
     }
-    
+
     return gameOver;
 
 }
+
+var highscore = localStorage.getItem("highscore");
+function highScoreSet(){
+    document.getElementById("highscore").innerHTML = localStorage.getItem("highscore");
+
+    if (score > highscore){
+        highscore = score;
+        localStorage.setItem("highscore", highscore);
+    }
+}
+// ^ ^ ^ Seemed to need the innerHTML part for it to work!
 
 function drawScore(){
     ctx.fillStyle = "white";

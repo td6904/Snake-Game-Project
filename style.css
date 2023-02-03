@@ -8,6 +8,10 @@ h1 {
     align-items: center;
 }
 
+#highscoreTab p {
+    display: inline;
+}
+
 #userInterface {
     display: flex;
     justify-content: space-around;
@@ -23,17 +27,19 @@ h1 {
     background-color: gray;
     padding: 40px;
     border: 2px solid black;
+    width: 15%;
 }
 
-#highscore {
+#highscoreTab {
     background-color: aqua;
     padding: 40px;
     border: 2px solid black;
+    width: 15%
 }
 
 .restartGame {
     margin-top: 10px;
     padding: 20px;
     position: absolute;
-    left: calc(50% - 20px);
+    left: calc(50% - 40px);
 }
