@@ -9,7 +9,7 @@ h1 {
 }
 
 h1 span {
-    background-color: rgb(62, 255, 62);
+    background-color: red;
     border: 2px solid black;
     padding: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
