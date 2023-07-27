@@ -28,21 +28,18 @@ h1 span {
 }
 
 .small-screen-alert {
-    display: none;
-
-  }
+  display: none;
+}
 
 .alert-message {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #game {
   box-shadow: black 20px 10px 50px;
 }
-/*50px in canvas
-        box-shadow is the blur for the shadow */
 
 #settings {
   background-color: gray;
@@ -81,6 +78,5 @@ h1 span {
     align-items: center;
     border-radius: 10px;
     background-color: gray;
-    
   }
 }
