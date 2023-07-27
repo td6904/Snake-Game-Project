@@ -65,7 +65,7 @@ h1 span {
   left: calc(50% - 40px);
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 750px) {
   #userInterface {
     display: none;
   }
