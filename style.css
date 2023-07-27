@@ -1,53 +1,86 @@
+body.locked {
+  overflow: hidden;
+}
+
 h1 {
-    margin: 10px;
-    padding: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 span {
+  background-color: green;
+  border: 2px solid black;
+  padding: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#highscoreTab p {
+  display: inline;
+}
+
+#userInterface {
+  display: flex;
+  justify-content: space-around;
+}
+
+.small-screen-alert {
+    display: none;
+
+  }
+
+.alert-message {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#game {
+  box-shadow: black 20px 10px 50px;
+}
+/*50px in canvas
+        box-shadow is the blur for the shadow */
+
+#settings {
+  background-color: gray;
+  padding: 40px;
+  border: 2px solid black;
+  width: 15%;
+}
+
+#highscoreTab {
+  background-color: aqua;
+  padding: 40px;
+  border: 2px solid black;
+  width: 15%;
+}
+
+.restartGame {
+  margin-top: 10px;
+  padding: 20px;
+  position: absolute;
+  left: calc(50% - 40px);
+}
+
+@media screen and (max-width: 720px) {
+  #userInterface {
+    display: none;
+  }
+
+  .restartGame {
+    display: none;
+  }
+
+  .small-screen-alert {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-}
-
-h1 span {
-    background-color: green;
-    border: 2px solid black;
-    padding: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
-
-#highscoreTab p {
-    display: inline;
-}
-
-#userInterface {
-    display: flex;
-    justify-content: space-around;
-}
-
-#game{
-    box-shadow: black 20px 10px 50px;
-}
-    /*50px in canvas
-        box-shadow is the blur for the shadow */
-
-#settings {
+    border-radius: 10px;
     background-color: gray;
-    padding: 40px;
-    border: 2px solid black;
-    width: 15%;
-}
-
-#highscoreTab {
-    background-color: aqua;
-    padding: 40px;
-    border: 2px solid black;
-    width: 15%
-}
-
-.restartGame {
-    margin-top: 10px;
-    padding: 20px;
-    position: absolute;
-    left: calc(50% - 40px);
+    
+  }
 }

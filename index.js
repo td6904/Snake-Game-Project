@@ -1,3 +1,17 @@
+//Locked screen
+document.addEventListener('keydown', function(event) {
+    if (event.key.includes('Arrow')) {
+        document.body.classList.add('locked');
+    }
+});
+
+document.addEventListener('keyup', function(event) {
+    if (event.key.includes('Arrow')) {
+        document.body.classList.add('locked');
+    }
+});
+
+//Game logic
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
